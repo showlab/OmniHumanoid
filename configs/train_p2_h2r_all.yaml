@@ -1,0 +1,69 @@
+category: ${oc.env:CATEGORY}
+
+experiment_project: "InteractionVideo-Wan-Robot"
+experiment_name: "${category}"
+
+seed: 42
+ckpt_path: null
+
+model_id: "./my-model/Wan2.2-TI2V-5B-Diffusers"
+output_root: "./second_phrase_output/train_ec_new_01"
+
+p1_model: null
+# ⚠️ 若第一阶段 LoRA 训练时 alpha != r，可在这里覆盖（否则脚本会自动根据权重推断 r，且默认 alpha=r）
+p1_r_text: 64
+p1_alpha_text: 64
+p1_r_transf: 64
+p1_alpha_transf: 64
+
+use_wandb: false
+num_nodes: 4   # 多机训练再改
+
+training:
+  batch_size: 1
+  max_steps: 2000
+
+  # 优化器 & 学习率调度
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-2
+  warmup_steps: 10
+
+  # 验证与保存
+  save_val_interval_steps: 50   #要与bash脚本STEP_PER_ROUND保持一致
+
+  # 梯度与精度
+  accumulate_grad_batches: 1
+  gradient_clip_val: 1.0
+  precision: "bf16-mixed"
+
+  # 加速与分布式
+  accelerator: "auto"
+  strategy: "auto"
+  gradient_checkpointing: true
+  benchmark: false
+
+lora:
+  r: 64
+  alpha: 64
+
+use_drop_text: true
+drop_prob: 0.1  
+
+dataset:
+  # 条件视频（第一视角/人）
+  video_root:  ""
+  # 监督目标（第三视角/机器人）
+  video_root2: ""
+  # 条件首帧
+  first_root:  ""
+
+
+  height: 736  #224
+  width: 1280  #416
+  sample_n_frames: 49  #4n+1
+  fps: 24
+
+  num_workers: 8
+  shuffle: true
+  drop_last: true
+  pin_memory: true

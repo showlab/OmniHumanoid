@@ -6,11 +6,11 @@
 
 ```bash
 # 1. 克隆仓库
-git clone ...
-cd ...
+git clone https://github.com/showlab/OmniHumanoid.git
+cd OmniHumanoid
 
 # 2. 根据 yaml 文件创建 Conda 环境
-conda env create -f environment_interactionvideo.yml
+conda env create -f environment.yml
 
 # 3. 激活环境 (请将 myenv 替换为 yaml 文件中定义的实际环境名称)
 conda activate [你的环境名称]

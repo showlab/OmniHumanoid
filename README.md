@@ -1,66 +1,61 @@
 # OmniHumanoid
 
-## 🛠️ 环境安装 (Installation)
+## 🛠️ Installation
 
-推荐使用 Conda 管理运行环境。请按照以下步骤配置依赖：
+We recommend using Conda to manage the runtime environment. Please follow the steps below to configure the dependencies:
 
 ```bash
-# 1. 克隆仓库
-git clone https://github.com/showlab/OmniHumanoid.git
+# 1. Clone the repository
+git clone [https://github.com/showlab/OmniHumanoid.git](https://github.com/showlab/OmniHumanoid.git)
 cd OmniHumanoid
 
-# 2. 根据 yaml 文件创建 Conda 环境
+# 2. Create the Conda environment from the yaml file
 conda env create -f environment.yml
 
-# 3. 激活环境 (请将 myenv 替换为 yaml 文件中定义的实际环境名称)
-conda activate [你的环境名称]
-```
+# 3. Activate the environment (please replace [your_env_name] with the actual environment name defined in the yaml file)
+conda activate [your_env_name]
+📁 Project Structure
+The core directory structure of this repository is outlined below:
 
+configs/: Contains YAML configuration files for model training and inference (e.g., train_p2_h2r_all.yaml).
 
+datasets/: Contains data processing code.
 
-## 📁 项目结构 (Project Structure)
+models/: Contains the core model files.
 
-本仓库的核心目录结构说明如下：
+src/: Contains the main Python scripts for underlying training and inference (including wan2_inference_p2_with_first_frame_ec.py based on first-frame conditioning).
 
-- `configs/`: 存放模型训练和推理的 YAML 配置文件 (例如 `train_p2_h2r_all.yaml`)。
-- `datasets/`: 存放数据处理的代码。
-- `models/`: 存放核心模型文件。
-- `src/`: 存放底层训练和推理的主 Python 脚本 (包含基于首帧条件的 `wan2_inference_p2_with_first_frame_ec.py`)。
-- `tools/`: 存放辅助工具脚本。
-- `p1_lora_library/`: 存放第一阶段 (Phase 1) 训练好的外观 LoRA 权重。
-- `robot_ref_img/`: 存放各类目标机器人的参考图像 (Reference Images)，用于指导生成。
+tools/: Contains auxiliary utility scripts.
 
+p1_lora_library/: Contains the trained appearance LoRA weights from Phase 1.
 
+robot_ref_img/: Contains reference images of various target robots used to guide the generation.
 
-## 📥 模型与数据准备 (Preparation)
+📥 Model and Data Preparation
+Before running inference or training, please ensure:
 
-在运行推理或训练之前，请确保：
+Base Model: Place the pre-trained Wan2 weights in the model/ directory or the path specified in the script.
 
-1. **基础模型**: 将 Wan2 的预训练权重放置在 `model/` 或脚本指定的路径下。
-2. **LoRA 权重**: 将对应的 LoRA 权重放置在 `p1_lora_library/` 目录下。
-3. **参考图**: 确保 `robot_ref_img/` 中包含你需要的机器人参考图片。
+LoRA Weights: Place the corresponding LoRA weights in the p1_lora_library/ directory.
 
-## 🚀 推理 (Inference)
+Reference Images: Ensure that robot_ref_img/ contains the robot reference images you need.
 
+🚀 Inference
 Bash
-
-```
-# 运行 P1 阶段推理
+# Run Phase 1 inference
 bash inference_p1.sh
 
-# 运行 P2 阶段 (H2R) 推理
+# Run Phase 2 (H2R) inference
 bash inference_p2_h2r.sh
-```
-
-## 🏋️ 训练 (Training)
-
-如果你需要使用自定义数据进行微调，可以修改 `configs/` 中的配置文件，并运行对应的训练脚本。
+🏋️ Training
+If you need to fine-tune the model using custom data, you can modify the configuration files in the configs/ directory and run the corresponding training scripts.
 
 Bash
-
-```
-# 运行 P2 阶段 H2R 多卡/多模态训练
+# Run Phase 2 H2R multi-GPU/multi-modal training
 bash train_p2_h2r_multi.sh
-```
+For more training parameters (such as batch_size, learning_rate), please directly edit the corresponding .sh scripts or the configs/train_p2_h2r_all.yaml file.
 
-更多训练参数（如 `batch_size`, `learning_rate`），请直接编辑对应的 `.sh` 脚本或 `configs/train_p2_h2r_all.yaml` 文件。
+Bash
+# Run Phase 2 H2R multi-GPU/multi-modal training
+bash train_p2_h2r_multi.sh
+For more training parameters (such as batch_size, learning_rate), please directly edit the corresponding .sh scripts or the configs/train_p2_h2r_all.yaml file.

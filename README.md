@@ -6,7 +6,7 @@ We recommend using Conda to manage the runtime environment. Please follow the st
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/showlab/OmniHumanoid.git](https://github.com/showlab/OmniHumanoid.git)
+git clone https://github.com/showlab/OmniHumanoid.git
 cd OmniHumanoid
 
 # 2. Create the Conda environment from the yaml file
@@ -14,6 +14,7 @@ conda env create -f environment.yml
 
 # 3. Activate the environment (please replace [your_env_name] with the actual environment name defined in the yaml file)
 conda activate [your_env_name]
+```
 
 ## 📁 Project Structure
 
@@ -21,6 +22,7 @@ The core directory structure of this repository is outlined below:
 
 - `configs/`: Contains YAML configuration files for model training and inference (e.g., `train_p2_h2r_all.yaml`).
 - `datasets/`: Contains data processing code.
+- `dataset/`: Put the training data here.
 - `models/`: Contains the core model files.
 - `src/`: Contains the main Python scripts for underlying training and inference (including `wan2_inference_p2_with_first_frame_ec.py` based on first-frame conditioning).
 - `tools/`: Contains auxiliary utility scripts.

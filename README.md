@@ -42,15 +42,17 @@ Before running inference or training, please ensure:
 ```bash
 # Run Phase 1 inference
 bash inference_p1.sh
+```
 
 ⚠️ **Prerequisite for Phase 2 Inference:**
 
-Before running the Phase 2 (H2R) inference, you must download the Phase 2 checkpoint from ModelScope.
+Before running the Phase 2 (H2R) inference, you must download the Phase 2 checkpoint (`step=10800.ckpt`) from ModelScope.
 
 - **Download Link:** [dddb0513/p2_ckpt](https://modelscope.cn/datasets/dddb0513/p2_ckpt/files)
 
 - **Placement:** Once downloaded, please place `step=10800.ckpt` into the path specified in your inference script.
 
+```bash
 # Run Phase 2 (H2R) inference
 bash inference_p2_h2r.sh
 ```

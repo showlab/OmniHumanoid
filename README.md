@@ -321,10 +321,14 @@ The P2 training requires **paired data**: human action videos + corresponding ro
 If you find this work useful, please cite our paper:
 
 ```bibtex
-@article{omnihumanoid2025,
-  title={OmniHumanoid: Cross-Embodiment Motion Transfer via Video Diffusion},
-  author={ShowLab},
-  year={2025}
+@misc{song2026omnihumanoidstreamingcrossembodimentvideo,
+      title={OmniHumanoid: Streaming Cross-Embodiment Video Generation with Paired-Free Adaptation}, 
+      author={Yiren Song and Xiyao Deng and Pei Yang and Yihan Wang and Mike Zheng Shou},
+      year={2026},
+      eprint={2605.12038},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.12038}, 
 }
 ```
 

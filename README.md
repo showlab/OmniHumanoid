@@ -5,6 +5,8 @@
 
 OmniHumanoid is a cross-embodiment motion transfer system built on the Wan2.2-TI2V-5B video diffusion model. It enables generating videos of a **target robot** reproducing the same actions from a **human (or other robot) action video**.
 
+We also release **[Human-Humanoid-4D](https://huggingface.co/datasets/dddb0513/Human-Humanoid-4D)**, a large-scale human/robot-to-robot paired video dataset rendered in Unity. The paired videos are strictly temporally aligned, covering diverse scenes and multiple robot characters. This dataset is used for training the Action Transfer Module (P2).
+
 ---
 
 ## 🧠 Method Overview

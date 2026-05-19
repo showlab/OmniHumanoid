@@ -16,6 +16,14 @@ conda env create -f environment.yml
 conda activate [your_env_name]
 ```
 
+## 🧠 Method Overview
+
+OmniHumanoid is built on top of two complementary modules, **Phase 1 (P1)** and **Phase 2 (P2)**, which can be used independently or jointly:
+
+- **Phase 1 (P1) — Robot Appearance LoRA**: The P1 weights are essentially appearance LoRAs of specific robots. When loaded on top of the base model at inference time, P1 enables **text-to-video** generation of a particular robot model purely from a textual description (e.g., generating a video of a specified robot performing actions described in the prompt).
+- **Phase 2 (P2) — Motion Consistency Module**: The P2 weights provide a motion consistency module that transfers and preserves motion patterns across subjects. P2 alone is responsible for ensuring that the generated motion remains faithful to a reference action sequence.
+- **P1 + P2 Joint Inference — Human/Robot-to-Robot (H2R) Video Generation**: When P1 and P2 are loaded **simultaneously**, the system can take a human (or robot) action video as input and generate a video of a **specific target robot** (determined by the loaded P1 LoRA) reproducing the same actions. This unlocks cross-embodiment motion transfer with controllable robot appearance.
+
 ## 📁 Project Structure
 
 The core directory structure of this repository is outlined below:
@@ -33,7 +41,7 @@ The core directory structure of this repository is outlined below:
 
 Before running inference or training, please ensure:
 
-1. **Base Model**: Place the pre-trained Wan2 weights in the `model/` directory or the path specified in the script.
+1. **Base Model**: Place the pre-trained Wan2.2-TI2V-5B weights in the `model/` directory or the path specified in the script.
 2. **LoRA Weights**: Place the corresponding LoRA weights in the `p1_lora_library/` directory.
 3. **Reference Images**: Ensure that `robot_ref_img/` contains the robot reference images you need.
 

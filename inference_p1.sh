@@ -9,4 +9,3 @@ CUDA_VISIBLE_DEVICES=0 python src/wan2_inference_p1.py \
   --steps 30 \
   --fps 24
 
-#gr3要再测试一下

@@ -1,5 +1,8 @@
 # OmniHumanoid
 
+[![arXiv](https://img.shields.io/badge/arXiv-2605.12038-b31b1b.svg)](https://arxiv.org/abs/2605.12038)
+[![Dataset](https://img.shields.io/badge/🤗%20HuggingFace-Dataset-yellow.svg)](https://huggingface.co/datasets/dddb0513/Human-Humanoid-4D)
+
 OmniHumanoid is a cross-embodiment motion transfer system built on the Wan2.2-TI2V-5B video diffusion model. It enables generating videos of a **target robot** reproducing the same actions from a **human (or other robot) action video**.
 
 ---
@@ -10,9 +13,9 @@ The system consists of two complementary modules:
 
 | Module | Name | Purpose |
 |--------|------|---------|
-| **P1** | Robot Appearance LoRA | Fine-tunes the base model to generate videos of a specific robot from text descriptions |
-| **P2** | Motion Consistency Module (CIL) | Preserves motion fidelity when transferring actions across embodiments |
-| **P1 + P2** | H2R (Human-to-Robot) | Joint inference: input a human action video + target robot appearance → output robot reproducing the same motion |
+| **P1** | Embodiment Video LoRA | Fine-tunes the base model to generate videos of a specific robot from text descriptions |
+| **P2** | Action Transfer Module  | Preserves motion fidelity when transferring actions across embodiments |
+| **P1 + P2** | Cross-embodiment video generation | Joint inference: input a human/robot action video + target robot appearance → output robot reproducing the same motion |
 
 ---
 

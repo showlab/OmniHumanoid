@@ -88,7 +88,7 @@ This section walks you through how to **train a P1 appearance LoRA for your own 
 
 ### Step 1: Prepare Training Data
 
-You need **10–30 short video clips** (3–5 seconds each) of your target robot performing various motions.
+You need **40-60 short video clips** (3–5 seconds each) of your target robot performing various motions.
 
 #### Data Format
 
